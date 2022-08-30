@@ -1,0 +1,51 @@
+<div class="upperBlock">
+    <div class="imageContainer">
+        <img class="coverImage" src={{information.coverImage}} alt="Cover Image">
+        <img class="profilePicture" src={{information.profilePicture}} alt="Profile Picture">
+    </div>
+    <div class="informationContainer">
+        <div class="basicInformation">
+            <p class="h2">{{information.firstName}} {{information.lastName}}</p>
+            <p class="h5">{{information.seniority}}</p>
+            <p class="h6"><small>{{information.country}}, {{information.province}}, {{information.location}}</small></p>
+            <a class="btn btn-primary" href="https://wa.me/{{information.phoneNumber}}" target="_blank">Enviar
+                Mensaje</a>
+        </div>
+        <div class="socialNetworks">
+            <a href="https://www.{{information.linkedin}}" target="_blank">
+                <i class="fab fa-linkedin"></i> {{information.linkedin}}
+            </a>
+            <a href="https://www.{{information.gitHub}}" target="_blank">
+                <i class="fab fa-github"></i> {{information.gitHub}}
+            </a>
+            <a href="mailto:{{information.email}}">
+                <i class="fas fa-envelope"></i> {{information.email}}
+            </a>
+            <a href="https://wa.me/{{information.phoneNumber}}" target="_blank">
+                <i class="fab fa-whatsapp-square"></i> +{{information.phoneNumber}}
+            </a>
+        </div>
+    </div>
+</div>
+
+<app-skills></app-skills>
+<app-video></app-video>
+
+<div class="lowerBlock">
+    <div>
+        <a href="https://www.{{information.linkedin}}" target="_blank">
+            <i class="fab fa-linkedin"></i> {{information.linkedin}}
+        </a>
+        <a href="https://www.{{information.gitHub}}" target="_blank">
+            <i class="fab fa-github"></i> {{information.gitHub}}
+        </a>
+    </div>
+    <div>
+        <a href="mailto:{{information.email}}">
+            <i class="fas fa-envelope"></i> {{information.email}}
+        </a>
+        <a href="https://wa.me/{{information.phoneNumber}}" target="_blank">
+            <i class="fab fa-whatsapp-square"></i> +{{information.phoneNumber}}
+        </a>
+    </div>
+</div>

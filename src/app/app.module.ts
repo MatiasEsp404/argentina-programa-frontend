@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InformationComponent } from './information/information.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SkillsComponent } from './skills/skills.component';
+import { VideoComponent } from './video/video.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InformationComponent,
+    SkillsComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

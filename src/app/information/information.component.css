@@ -1,0 +1,129 @@
+
+.imageContainer {
+  height: 200px;
+  position: relative;
+  top: 15px;
+  width: 96%;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.coverImage{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.profilePicture {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid white;
+  position: absolute;
+  top: 90px;
+  left: 2.5vw;
+}
+
+.basicInformation {
+  grid-area: info;
+  min-height: 165px;
+}
+
+.socialNetworks {
+  grid-area: redes;
+}
+
+.socialNetworks a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  margin: 10px 20px;
+}
+
+.informationContainer {
+  margin: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "info info info info info info info info redes redes redes redes"
+    "info info info info info info info info redes redes redes redes";
+}
+
+.upperBlock {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.fab,
+.fas {
+  font-size: 20px;
+}
+
+.btn {
+  margin-top: 3px;
+}
+
+@media screen and (max-width: 991px) {
+  .informationContainer {
+    grid-template-areas:
+      "info info info info info info info redes redes redes redes redes"
+      "info info info info info info info redes redes redes redes redes";
+  }
+
+  .basicInformation {
+    min-height: 200px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .informationContainer {
+    grid-template-areas:
+      "info info info info info info info info info info info info"
+      "redes redes redes redes redes redes redes redes redes redes redes redes";
+    text-align: center;
+  }
+
+  .basicInformation {
+    min-height: 140px;
+  }
+}
+
+.lowerBlock a {
+  margin: 20px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.lowerBlock div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.lowerBlock {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 767px) {
+  .lowerBlock a {
+    margin: 10px;
+  }
+}
