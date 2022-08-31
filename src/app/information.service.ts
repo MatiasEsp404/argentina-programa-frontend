@@ -8,7 +8,7 @@ import { Information } from './information';
 })
 export class InformationService {
 
-  private baseURL = "http://localhost:8080/api/information";
+  private baseURL = "https://argentina-programa-grupo-144.herokuapp.com/api/information";
 
   constructor(private httpClient : HttpClient) { }
 
