@@ -8,13 +8,13 @@
   <form style="max-width: 50%;">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Usuario</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" class="form-control" (keyup)="editUser($event)" name="exampleInputEmail1" [(ngModel)]="user.email"> 
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <input type="password" class="form-control" (keyup)="editUser($event)" name="exampleInputPassword1" [(ngModel)]="user.password">
     </div>
-    <button type="button" class="btn btn-primary" (click)="loggedIn()">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="loggedIn($event)">Submit</button>
   </form>
 
 </div>
@@ -29,53 +29,54 @@
   <form style="max-width: 50%;">
     <div class="mb-3">
       <label for="exampleInputName1" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="exampleInputName1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputName1" [(ngModel)]="information.firstName">
     </div>
     <div class="mb-3">
       <label for="exampleInputLastName1" class="form-label">Apellido</label>
-      <input type="text" class="form-control" id="exampleInputLastName1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputLastName1" (error)="changeError()" [(ngModel)]="information.lastName">
     </div>
     <div class="mb-3">
       <label for="exampleInputEmail2" class="form-label">Email</label>
-      <input type="email" class="form-control" id="exampleInputEmail2">
+      <input type="email" class="form-control" (keyup)="onChanges($event)" name="exampleInputEmail2" (error)="changeError()" [(ngModel)]="information.email">
     </div>
     <div class="mb-3">
       <label for="exampleInputLinkedin1" class="form-label">Linkedin</label>
-      <input type="text" class="form-control" id="exampleInputLinkedin1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputLinkedin1" (error)="changeError()" [(ngModel)]="information.linkedin">
     </div>
     <div class="mb-3">
       <label for="exampleInputGithub1" class="form-label">GitHub</label>
-      <input type="text" class="form-control" id="exampleInputGithub1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputGithub1" (error)="changeError()" [(ngModel)]="information.gitHub">
     </div>
     <div class="mb-3">
       <label for="exampleInputCountry1" class="form-label">País</label>
-      <input type="text" class="form-control" id="exampleInputCountry1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputCountry1" (error)="changeError()" [(ngModel)]="information.country">
     </div>
     <div class="mb-3">
       <label for="exampleInputProvince1" class="form-label">Provincia</label>
-      <input type="text" class="form-control" id="exampleInputProvince1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputProvince1" (error)="changeError()" [(ngModel)]="information.province">
     </div>
     <div class="mb-3">
       <label for="exampleInputLocation1" class="form-label">Dirección</label>
-      <input type="text" class="form-control" id="exampleInputLocation1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputLocation1" (error)="changeError()" [(ngModel)]="information.location">
     </div>
     <div class="mb-3">
       <label for="exampleInputPhoneNumber1" class="form-label">Número de Teléfono</label>
-      <input type="text" class="form-control" id="exampleInputPhoneNumber1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputPhoneNumber1" (error)="changeError()" [(ngModel)]="information.phoneNumber">
     </div>
     <div class="mb-3">
       <label for="exampleInputSeniority1" class="form-label">Seniority</label>
-      <input type="text" class="form-control" id="exampleInputSeniority1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputSeniority1" (error)="changeError()" [(ngModel)]="information.seniority">
     </div>
     <div class="mb-3">
       <label for="exampleInputProfilePicture1" class="form-label">Imágen de Perfil</label>
-      <input type="text" class="form-control" id="exampleInputProfilePicture1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputProfilePicture1" (error)="changeError()" [(ngModel)]="information.profilePicture">
     </div>
     <div class="mb-3">
       <label for="exampleInputCoverImage1" class="form-label">Imágen de Portada</label>
-      <input type="text" class="form-control" id="exampleInputCoverImage1">
+      <input type="text" class="form-control" (keyup)="onChanges($event)" name="exampleInputCoverImage1" (error)="changeError()" [(ngModel)]="information.coverImage">
     </div>
-    <button type="button" class="btn btn-primary" (click)="loggedIn()">Confirmar</button>
+
+    <button type="button" class="btn btn-primary" (click)="submit()">Confirmar</button>
   </form>
 
 </div>
