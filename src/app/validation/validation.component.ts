@@ -12,4 +12,25 @@ export class ValidationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public loginDisabled: Boolean = false;
+  public btnLoginDisabled: Boolean = true;
+  public logged: Boolean = false;
+  public btnEdit: Boolean = false;
+
+  
+
+  disableLogin(){
+    this.loginDisabled = !this.loginDisabled;
+  }
+
+  loggedIn(){
+    this.btnLoginDisabled = false;
+    this.loginDisabled = !this.loginDisabled;
+    this.logged = true;
+  }
+
+  editInfo(){
+    this.btnEdit = true;
+  }
+
 }
