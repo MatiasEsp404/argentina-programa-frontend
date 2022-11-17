@@ -7,13 +7,15 @@ import { InformationComponent } from './information/information.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SkillsComponent } from './skills/skills.component';
 import { VideoComponent } from './video/video.component';
+import { ValidationComponent } from './validation/validation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InformationComponent,
     SkillsComponent,
-    VideoComponent
+    VideoComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,
