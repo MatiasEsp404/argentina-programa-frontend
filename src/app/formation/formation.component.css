@@ -1,0 +1,17 @@
+.formationContainer{
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 20px 20px 5px;
+}
+.formation{
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+      "front back"
+      "front back";
+    margin-bottom: 60px;
+}

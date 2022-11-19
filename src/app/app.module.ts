@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SkillsComponent } from './skills/skills.component';
 import { VideoComponent } from './video/video.component';
 import { ValidationComponent } from './validation/validation.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { FormationComponent } from './formation/formation.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ValidationComponent } from './validation/validation.component';
     InformationComponent,
     SkillsComponent,
     VideoComponent,
-    ValidationComponent
+    ValidationComponent,
+    ProjectsComponent,
+    FormationComponent
   ],
   imports: [
     BrowserModule,
