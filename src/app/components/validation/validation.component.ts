@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Information } from "../../models/information/information";
+import { User } from "../../models/validation/user";
+import { ValidationService } from "../../services/validation/validation.service";
 
 @Component({
   selector: 'app-validation',
@@ -8,7 +10,7 @@ import { Information } from "../../models/information/information";
 })
 export class ValidationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private validationService: ValidationService) { }
 
   ngOnInit(): void {
 
@@ -29,7 +31,7 @@ export class ValidationComponent implements OnInit {
     coverImage: ''
   };
 
-  public user = {
+  public user: User = {
     email: '',
     password: ''
   }
@@ -55,9 +57,8 @@ export class ValidationComponent implements OnInit {
     this.btnLoginDisabled = false;
     this.loginDisabled = !this.loginDisabled;
     this.logged = true;
-    console.log("en la variable user: " + this.user.email);
-
-
+    console.log("en la variable user: " + this.user.email + " " + this.user.password);
+    this.authUser()
   }
 
   editInfo(){
@@ -76,6 +77,13 @@ export class ValidationComponent implements OnInit {
   changeError(){
 
   }
-
+  
+  private authUser(){
+    this.validationService.authUser(this.user).subscribe(info => {
+      this.user = info;
+      console.log(info);
+      
+    })
+  }
 
 }
