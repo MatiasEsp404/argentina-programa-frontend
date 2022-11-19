@@ -4,19 +4,19 @@ import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InformationComponent } from './information/information.component';
+import { InformationComponent } from "./components/information/information.component";
 import { HttpClientModule } from '@angular/common/http';
-import { SkillsComponent } from './skills/skills.component';
-import { VideoComponent } from './video/video.component';
-import { ValidationComponent } from './validation/validation.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { FormationComponent } from './formation/formation.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { VideoComponent } from './components/video/video.component';
+import { ValidationComponent } from './components/validation/validation.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { FormationComponent } from './components/formation/formation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InformationComponent,
     SkillsComponent,
+    InformationComponent,
     VideoComponent,
     ValidationComponent,
     ProjectsComponent,

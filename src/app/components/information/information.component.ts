@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Information } from '../information';
-import { InformationService } from '../information.service';
+import { Information } from '../../models/information/information';
+import { InformationService } from '../../services/information/information.service';
 
 @Component({
   selector: 'app-information',
@@ -25,7 +25,7 @@ export class InformationComponent implements OnInit {
 
   changesReceived(){
     console.log("information recibio los cambios de validation");
-    
+
   }
 
 }

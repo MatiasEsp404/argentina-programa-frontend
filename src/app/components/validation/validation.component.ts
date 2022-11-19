@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Information } from "../information";
+import { Information } from "../../models/information/information";
 
 @Component({
   selector: 'app-validation',
@@ -33,14 +33,14 @@ export class ValidationComponent implements OnInit {
     email: '',
     password: ''
   }
-  
+
 
   public loginDisabled: Boolean = false;
   public btnLoginDisabled: Boolean = true;
   public logged: Boolean = false;
   public btnEdit: Boolean = false;
 
-  
+
 
   disableLogin(){
     this.loginDisabled = !this.loginDisabled;
@@ -56,8 +56,8 @@ export class ValidationComponent implements OnInit {
     this.loginDisabled = !this.loginDisabled;
     this.logged = true;
     console.log("en la variable user: " + this.user.email);
-    
-    
+
+
   }
 
   editInfo(){
@@ -76,6 +76,6 @@ export class ValidationComponent implements OnInit {
   changeError(){
 
   }
-  
+
 
 }
