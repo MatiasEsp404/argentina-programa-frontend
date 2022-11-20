@@ -1,8 +1,12 @@
 <div class="formationContainer">
     <p class="h4">Formación:</p>
-    <div class="formation">
+    <br>
+    <div > <!--class="formation" -->
         <ul>
-            <li *ngFor="let f of formation">{{f.date}} - <b>{{f.name}}</b>: {{f.description}}</li>
+            <li *ngFor="let f of formation">
+              {{f.date}} - <b>{{f.name}}</b>: {{f.description}}
+              <hr>
+            </li>
         </ul>
     </div>
 </div>

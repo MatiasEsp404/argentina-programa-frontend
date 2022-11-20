@@ -7,6 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
+
+  public project = [
+    {
+      name: "argentina-programa-frontend",
+      description: "Entrega del proyecto integrador de Argentina Programa. Portfolio Web FrontEnd.",
+      url: "https://github.com/MatiasEsp404/argentina-programa-frontend"
+    },
+    {
+      name: "argentina-programa-backend",
+      description: "Entrega del proyecto integrador de Argentina Programa. Portfolio Web BackEnd.",
+      url: "https://github.com/MatiasEsp404/argentina-programa-backend"
+    }
+  ];
+
+
   constructor() { }
 
   ngOnInit(): void {
