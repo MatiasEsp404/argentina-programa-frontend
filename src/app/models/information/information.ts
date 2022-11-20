@@ -14,6 +14,11 @@ export class Information {
   seniority: string;
   profilePicture: string;
   coverImage: string;
-  formation: Formation;
-  project: Project;
+  formation: Formation[];
+  project: Project[];
+
+  constructor (){
+
+  }
+
 }

@@ -9,7 +9,7 @@ import { InformationService } from '../../services/information/information.servi
 })
 export class InformationComponent implements OnInit {
 
-  information: Information;
+  information: Information = new Information();
 
   constructor(private informationService: InformationService) { }
 

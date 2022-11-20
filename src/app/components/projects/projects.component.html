@@ -2,7 +2,11 @@
   <p class="h4">Proyectos:</p>
   <div>
     <ul>
-      <li *ngFor="let p of project">
+      <li *ngIf="information.project != null; else myElseBlock">No hay proyectos</li>
+      <ng-template #myElseBlock>
+        <p>Lista de proyectos:</p>
+      </ng-template>
+      <li *ngFor="let p of information.project">
         <span class="h5">{{p.name}}</span>
         <br>
         {{p.description}}
