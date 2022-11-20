@@ -2,13 +2,7 @@
     <p class="h4">Formación:</p>
     <div class="formation">
         <ul>
-            <li>Formacion 1</li>
-            <li>Formacion 1</li>
-            <li>Formacion 1</li>
-            <li>Formacion 1</li>
-            <li>Formacion 1</li>
-            <li>Formacion 1</li>
-            <li>Formacion 1</li>
+            <li *ngFor="let f of formation">{{f.date}} - <b>{{f.name}}</b>: {{f.description}}</li>
         </ul>
     </div>
 </div>
