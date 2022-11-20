@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Project } from 'src/app/models/project/project';
 
 @Component({
   selector: 'app-projects',
@@ -7,8 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-
-  @Input() public project = [
+  @Input() public project: Project[] = [
     {
       name: "argentina-programa-frontend",
       description: "Entrega del proyecto integrador de Argentina Programa. Portfolio Web FrontEnd.",
@@ -20,7 +20,6 @@ export class ProjectsComponent implements OnInit {
       url: "https://github.com/MatiasEsp404/argentina-programa-backend"
     }
   ];
-
 
   constructor() { }
 

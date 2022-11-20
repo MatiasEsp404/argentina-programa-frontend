@@ -4,6 +4,7 @@ import { Information } from "../../models/information/information";
 import { User } from "../../models/validation/user";
 import { ValidationService } from "../../services/validation/validation.service";
 import { Token } from "../../models/validation/token";
+import { Formation } from 'src/app/models/formation/formation';
 
 
 @Component({
@@ -15,24 +16,9 @@ export class ValidationComponent implements OnInit {
 
   constructor(private validationService: ValidationService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-  }
-
-  public information: Information = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    linkedin: '',
-    gitHub: '',
-    country: '',
-    province: '',
-    location: '',
-    phoneNumber: '',
-    seniority: '',
-    profilePicture: '',
-    coverImage: ''
-  };
+  public information: Information = new Information();
 
   public user: User = {
     email: 'foo@outlook.com',
@@ -61,11 +47,11 @@ export class ValidationComponent implements OnInit {
   }
 
   loggedIn(event: Event){
-    
+
     console.log("en la variable user: " + this.user.email + " " + this.user.password);
     this.authUser();
     console.log(this.userInvalid);
-    
+
 
   }
 
@@ -86,20 +72,20 @@ export class ValidationComponent implements OnInit {
   changeError(){
 
   }
-  
+
   private authUser(){
     this.validationService.authUser(this.user).subscribe(info => {
       console.log('esta es la respuesta del endpoint' + info);
       console.log(info.toString());
 
-      
-      
+
+
       try {
         this.token = info;
-        
+
       } catch (error) {
         console.log('No se guardo token en la variable');
-        
+
       }
       console.log('este es el token: ' + this.token);
       this.btnLoginDisabled = false;
@@ -114,8 +100,8 @@ export class ValidationComponent implements OnInit {
     this.validationService.patchInfo(this.information, this.token.token).subscribe(info => {
       this.information = info;
       console.log(this.information);
-      
-      
+
+
     })
   }
 
