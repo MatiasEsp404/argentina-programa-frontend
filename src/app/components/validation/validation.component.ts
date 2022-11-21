@@ -6,7 +6,6 @@ import { ValidationService } from "../../services/validation/validation.service"
 import { Token } from "../../models/validation/token";
 import { Formation } from 'src/app/models/formation/formation';
 
-
 @Component({
   selector: 'app-validation',
   templateUrl: './validation.component.html',
@@ -27,7 +26,6 @@ export class ValidationComponent implements OnInit {
 
   public token: Token;
 
-
   public userInvalid: Boolean = true;
 
   public loginDisabled: Boolean = false;
@@ -35,51 +33,42 @@ export class ValidationComponent implements OnInit {
   public logged: Boolean = false;
   public btnEdit: Boolean = false;
 
-
-
-  disableLogin(){
+  disableLogin() {
     this.loginDisabled = !this.loginDisabled;
   }
 
-  editUser(event: Event){
+  editUser(event: Event) {
     const element = event.target as HTMLInputElement;
     console.log(this.user);
   }
 
-  loggedIn(event: Event){
-
+  loggedIn(event: Event) {
     console.log("en la variable user: " + this.user.email + " " + this.user.password);
     this.authUser();
     console.log(this.userInvalid);
-
-
   }
 
-  editInfo(){
+  editInfo() {
     this.btnEdit = !this.btnEdit;
   }
 
-  onChanges(event: Event){
+  onChanges(event: Event) {
     const element = event.target as HTMLInputElement;
-
   }
 
-  submit(){
+  submit() {
     console.log(this.information);
     this.patchInfo();
   }
 
-  changeError(){
-
+  changeError() {
+    console.log("Datos mal ingresados");
   }
 
-  private authUser(){
+  private authUser() {
     this.validationService.authUser(this.user).subscribe(info => {
       console.log('esta es la respuesta del endpoint' + info);
       console.log(info.toString());
-
-
-
       try {
         this.token = info;
 
@@ -96,12 +85,11 @@ export class ValidationComponent implements OnInit {
     })
   }
 
-  private patchInfo(){
+  private patchInfo() {
     this.validationService.patchInfo(this.information, this.token.token).subscribe(info => {
       this.information = info;
       console.log(this.information);
-
-
+      window.location.reload();
     })
   }
 

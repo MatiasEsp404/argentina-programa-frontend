@@ -10,7 +10,18 @@ import { Project } from 'src/app/models/project/project';
 })
 export class ProjectsComponent implements OnInit {
 
-  @Input() public information: Information = new Information();
+  public project: Project[] = [
+    {
+      name: "argentina-programa-frontend",
+      description: "Entrega del proyecto integrador de Argentina Programa. Portfolio Web FrontEnd.",
+      url: "https://github.com/MatiasEsp404/argentina-programa-frontend"
+    },
+    {
+      name: "argentina-programa-backend",
+      description: "Entrega del proyecto integrador de Argentina Programa. Portfolio Web BackEnd.",
+      url: "https://github.com/MatiasEsp404/argentina-programa-backend"
+    }
+  ]
 
   constructor() { }
 
