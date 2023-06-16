@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class HabilidadService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  private backendUrl = 'http://localhost:8080'
+
+  obtenerHabilidades() {
+    return this.http.get<any>(this.backendUrl + '/api/habilidad')
+  }
+
 }

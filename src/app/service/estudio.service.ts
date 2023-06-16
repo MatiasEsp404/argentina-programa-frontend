@@ -14,7 +14,7 @@ export class EstudioService {
   private backendUrl = 'http://localhost:8080'
 
   obtenerEstudios() {
-    return this.http.get<any>(this.backendUrl + '/api/estudios')
+    return this.http.get<any>(this.backendUrl + '/api/estudio')
   }
 
 }

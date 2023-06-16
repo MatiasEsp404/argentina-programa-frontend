@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Trabajo } from 'src/app/model/trabajo';
+import { TrabajoService } from 'src/app/service/trabajo.service';
 
 @Component({
   selector: 'app-trabajos',
@@ -8,19 +9,25 @@ import { Trabajo } from 'src/app/model/trabajo';
 })
 export class TrabajosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private trabajoService : TrabajoService
+  ) { }
 
   trabajos: Trabajo[] = []
 
   ngOnInit(): void {
-    this.trabajos = [
-      {
-        titulo: 'Experto en maquinitas',
-        fechaDesde: '05-2022',
-        fechaHasta: '07-2023',
-        descripcion: 'Metía trucos :p'
+    this.obtenerTrabajos()
+  }
+
+  private obtenerTrabajos() {
+    this.trabajoService.obtenerTrabajos().subscribe({
+      next: respuesta => {
+        this.trabajos = respuesta;
+      },
+      error: error => {
+        console.log(error);
       }
-    ]
+    })
   }
 
 }

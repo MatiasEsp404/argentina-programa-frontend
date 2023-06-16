@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Habilidad } from 'src/app/model/habilidad';
+import { HabilidadService } from 'src/app/service/habilidad.service';
 
 @Component({
   selector: 'app-habilidades',
@@ -8,25 +9,25 @@ import { Habilidad } from 'src/app/model/habilidad';
 })
 export class HabilidadesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private habilidadService: HabilidadService
+  ) { }
 
   habilidades: Habilidad[] | undefined;
 
   ngOnInit(): void {
-    this.habilidades = [
-      {
-        nombre: 'HTML',
-        capacidad: 95
+    this.obtenerHabilidades();
+  }
+
+  private obtenerHabilidades() {
+    this.habilidadService.obtenerHabilidades().subscribe({
+      next: respuesta => {
+        this.habilidades = respuesta;
       },
-      {
-        nombre: 'CSS',
-        capacidad: 50
-      },
-      {
-        nombre: 'JS',
-        capacidad: 10
-      },
-    ]
+      error: error => {
+        console.log(error);
+      }
+    })
   }
 
 }

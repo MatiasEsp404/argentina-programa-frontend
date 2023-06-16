@@ -16,21 +16,7 @@ export class EstudiosComponent implements OnInit {
   estudios: Estudio[] = []
 
   ngOnInit() {
-
-    this.estudios = [
-      {
-        titulo: 'Licenciado en League of legends',
-        fechaFinalizacion: '12-12-2023',
-        descripcion: 'Me hice un penta con Morgana'
-      },
-      {
-        titulo: 'Licenciado en Age of Empires',
-        fechaFinalizacion: '12-12-2022',
-        descripcion: 'Vencí a un ejercito de caballeros de la orden teutónica con lanceros'
-      },
-    ]
-
-    // this.obtenerEstudios();
+    this.obtenerEstudios();
   }
 
   private obtenerEstudios() {
