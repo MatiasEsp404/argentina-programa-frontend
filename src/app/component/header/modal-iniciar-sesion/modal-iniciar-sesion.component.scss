@@ -1,0 +1,19 @@
+.form-wrapper {
+  padding: 2rem;
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .contenedor-horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

@@ -13,6 +13,8 @@ import { TrabajoComponent } from './component/body/trabajos/trabajo/trabajo.comp
 import { TrabajosComponent } from './component/body/trabajos/trabajos.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
+import { ModalIniciarSesionComponent } from './component/header/modal-iniciar-sesion/modal-iniciar-sesion.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { HeaderComponent } from './component/header/header.component';
     TrabajosComponent,
     TrabajoComponent,
     HabilidadesComponent,
-    HabilidadComponent
+    HabilidadComponent,
+    ModalIniciarSesionComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
