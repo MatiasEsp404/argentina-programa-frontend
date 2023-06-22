@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Credenciales } from 'src/app/model/credenciales';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-modal-iniciar-sesion',
@@ -11,15 +12,15 @@ import { Credenciales } from 'src/app/model/credenciales';
 export class ModalIniciarSesionComponent implements OnInit {
 
   constructor(
-    private ngbActiveModal: NgbActiveModal
+    private ngbActiveModal: NgbActiveModal,
+    private authService: AuthService
   ) { }
 
-  public sesionForm = new FormGroup({
+  sesionForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     contrasenia: new FormControl('', [Validators.required]),
   });
-
-  @Output() credenciales: EventEmitter<Credenciales> = new EventEmitter<Credenciales>();
+  authError = false;
 
   ngOnInit(): void {
   }
@@ -47,15 +48,19 @@ export class ModalIniciarSesionComponent implements OnInit {
     this.ngbActiveModal.close(false);
   }
 
-  iniciarSesion() {
-    this.credenciales.emit(this.obtenerCredenciales());
-    this.cancelar();
+  async iniciarSesion(): Promise<void> {
+    const usuarioLogueado = await this.authService.login(this.obtenerCredenciales());
+    if (usuarioLogueado) {
+      this.cancelar()
+    } else {
+      this.authError = true
+    }
   }
 
   obtenerCredenciales() : Credenciales {
     const credenciales: Credenciales = {
       email: this.sesionForm.get('email')?.value!,
-      contrasenia: this.sesionForm.get('contrasenia')?.value!
+      password: this.sesionForm.get('contrasenia')?.value!
     }
     return credenciales;
   }
