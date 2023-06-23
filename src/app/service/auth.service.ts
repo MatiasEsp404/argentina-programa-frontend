@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { Credenciales } from '../model/credenciales';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class AuthService {
     localStorage.setItem(this.tokenKey, token);
   }
 
-  obtenerToken(): string | null{
+  obtenerToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
 
@@ -27,14 +27,16 @@ export class AuthService {
     localStorage.removeItem(this.tokenKey);
   }
 
-  async login(credenciales: Credenciales): Promise<boolean> {
-    try {
-      const respuesta = await firstValueFrom(this.http.post<any>(this.url + '/auth/login', credenciales));
-      this.guardarToken(respuesta.token);
-      return true;
-    } catch (error) {
-      return false;
-    }
+  estaLogueado(): boolean {
+    return !!localStorage.getItem(this.tokenKey);
+  }
+
+  login(credenciales: Credenciales): Observable<any> {
+    return this.http.post<any>(this.url + '/auth/login', credenciales)
+  }
+
+  me() {
+    return this.http.get<any>(this.url + '/auth/me')
   }
 
 }

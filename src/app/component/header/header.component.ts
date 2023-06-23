@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalIniciarSesionComponent } from './modal-iniciar-sesion/modal-iniciar-sesion.component';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,19 +11,23 @@ import { ModalIniciarSesionComponent } from './modal-iniciar-sesion/modal-inicia
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private ngbModal: NgbModal
+    private ngbModal: NgbModal,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
   }
 
+  estaLogueado(): boolean {
+    return this.authService.estaLogueado();
+  }
+
   iniciarSesion() {
     this.ngbModal.open(ModalIniciarSesionComponent);
-    // const modalRef: NgbModalRef = this.ngbModal.open(ModalIniciarSesionComponent);
-    // modalRef.componentInstance.credenciales.subscribe((credenciales: Credenciales) => {
-    //   console.log('Iniciando Sesion!');
-    //   console.log(credenciales)
-    // });
+  }
+
+  cerrarSesion(){
+    this.authService.limpiarToken()
   }
 
 }

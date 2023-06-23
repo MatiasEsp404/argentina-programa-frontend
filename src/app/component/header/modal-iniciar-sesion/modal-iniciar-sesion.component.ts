@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { firstValueFrom } from 'rxjs';
 import { Credenciales } from 'src/app/model/credenciales';
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -20,7 +21,7 @@ export class ModalIniciarSesionComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     contrasenia: new FormControl('', [Validators.required]),
   });
-  authError = false;
+  authError = '';
 
   ngOnInit(): void {
   }
@@ -48,12 +49,17 @@ export class ModalIniciarSesionComponent implements OnInit {
     this.ngbActiveModal.close(false);
   }
 
-  async iniciarSesion(): Promise<void> {
-    const usuarioLogueado = await this.authService.login(this.obtenerCredenciales());
-    if (usuarioLogueado) {
+  async iniciarSesion() {
+    try {
+      const respuesta = await firstValueFrom(this.authService.login(this.obtenerCredenciales()));
+      this.authService.guardarToken(respuesta.token);
       this.cancelar()
-    } else {
-      this.authError = true
+    } catch (error: any) {
+      if (error.status == 401 || error.status == 400) {
+        this.authError = error.error.message
+      } else {
+        this.authError = 'Error del servidor'
+      }
     }
   }
 
