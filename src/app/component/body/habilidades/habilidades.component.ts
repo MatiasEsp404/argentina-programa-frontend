@@ -18,20 +18,20 @@ export class HabilidadesComponent implements OnInit, OnDestroy {
     private ngbModal: NgbModal,
     private authService: AuthService
   ) {
-    this.habilidadesSubs = this.habilidadService.recargarHabilidades.subscribe(
+    this.habilidadSubs = this.habilidadService.recargarHabilidades.subscribe(
       () => this.obtenerHabilidades()
     )
   }
 
   habilidades: Habilidad[] | undefined;
-  private habilidadesSubs = new Subscription()
+  private habilidadSubs = new Subscription()
 
   ngOnInit(): void {
     this.obtenerHabilidades();
   }
 
   ngOnDestroy(): void {
-    this.habilidadesSubs.unsubscribe();
+    this.habilidadSubs.unsubscribe();
   }
 
   private obtenerHabilidades() {

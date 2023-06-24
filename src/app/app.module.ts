@@ -19,6 +19,9 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ModalIniciarSesionComponent } from './component/header/modal-iniciar-sesion/modal-iniciar-sesion.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { CrearEstudioComponent } from './component/body/estudios/modales/crear-estudio/crear-estudio.component';
+import { EliminarEstudioComponent } from './component/body/estudios/modales/eliminar-estudio/eliminar-estudio.component';
+import { ModificarEstudioComponent } from './component/body/estudios/modales/modificar-estudio/modificar-estudio.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     ModalIniciarSesionComponent,
     CrearHabilidadComponent,
     EliminarHabilidadComponent,
-    ModificarHabilidadComponent
+    ModificarHabilidadComponent,
+    CrearEstudioComponent,
+    EliminarEstudioComponent,
+    ModificarEstudioComponent
   ],
   imports: [
     BrowserModule,
