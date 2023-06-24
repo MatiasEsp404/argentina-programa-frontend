@@ -4,6 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { firstValueFrom } from 'rxjs';
 import { Habilidad } from 'src/app/model/habilidad';
 import { HabilidadService } from 'src/app/service/habilidad.service';
+import { longitudMaxima } from 'src/app/validators/utils.validator';
 
 @Component({
   selector: 'app-modal-crear-habilidad',
@@ -18,7 +19,7 @@ export class CrearHabilidadComponent implements OnInit {
   ) { }
 
   habilidadForm = new FormGroup({
-    nombre: new FormControl('', [Validators.required]),
+    nombre: new FormControl('', [Validators.required, longitudMaxima(64)]),
     capacidad: new FormControl('', [Validators.required, Validators.min(0), Validators.max(100)]),
   });
   errorBackend = ''
@@ -36,6 +37,9 @@ export class CrearHabilidadComponent implements OnInit {
 
   obtenerMensajeError(campo: string): string {
     const control = this.habilidadForm.get(campo);
+    if (control?.hasError('longitudExcedida')) {
+      return 'Longitud máxima excedida';
+    }
     if (control?.hasError('min')) {
       return 'Debe ingresar un número mayor a 0';
     }

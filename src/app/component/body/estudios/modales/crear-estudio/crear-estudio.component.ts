@@ -19,7 +19,7 @@ export class CrearEstudioComponent implements OnInit {
   ) { }
 
   estudioForm = new FormGroup({
-    titulo: new FormControl('', [Validators.required]),
+    titulo: new FormControl('', [Validators.required, longitudMaxima(64)]),
     descripcion: new FormControl('', [Validators.required, longitudMaxima(256)]),
     fechaFinalizacion: new FormControl('', [Validators.required, menorIgualAFechaActual()])
   });
@@ -62,7 +62,7 @@ export class CrearEstudioComponent implements OnInit {
       return 'La fecha debe ser menor o igual a la fecha actual';
     }
     if (control?.hasError('longitudExcedida')) {
-      return 'La descripción no puede superar los 256 caracteres';
+      return 'Longitud máxima excedida';
     }
     if (control?.hasError('required')) {
       return 'Este campo es obligatorio';
