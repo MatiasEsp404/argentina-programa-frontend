@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Habilidad } from 'src/app/model/habilidad';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-habilidad',
@@ -8,11 +9,25 @@ import { Habilidad } from 'src/app/model/habilidad';
 })
 export class HabilidadComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   @Input() habilidad: Habilidad | undefined;
 
   ngOnInit(): void {
+  }
+
+  estaLogueado(): boolean {
+    return this.authService.estaLogueado();
+  }
+
+  modificarHabilidad() {
+
+  }
+
+  eliminarHabilidad() {
+
   }
 
 }

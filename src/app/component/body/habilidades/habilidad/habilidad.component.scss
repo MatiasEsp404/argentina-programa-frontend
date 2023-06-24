@@ -1,3 +1,28 @@
-p {
-  display: block;
+.titulo-container {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+
+  p {
+    display: block;
+  }
+
+  .botones {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    button {
+      padding: 0;
+
+      span {
+        margin: 0;
+        display: block;
+      }
+    }
+  }
+
 }

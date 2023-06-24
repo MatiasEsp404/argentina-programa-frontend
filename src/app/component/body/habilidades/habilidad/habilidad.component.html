@@ -1,4 +1,14 @@
-<p class="h5">{{habilidad?.nombre}}</p>
+<div class="titulo-container">
+  <p class="h5">{{habilidad?.nombre}}</p>
+  <div class="botones" *ngIf="estaLogueado()">
+    <button class="btn btn-light" (click)="modificarHabilidad()">
+      <span class="material-icons">close</span>
+    </button>
+    <button class="btn btn-light" (click)="eliminarHabilidad()">
+      <span class="material-icons">edit</span>
+    </button>
+  </div>
+</div>
 <div class="progress">
   <div class="progress-bar progress-bar-striped progress-bar-animated"
   role="progressbar" [attr.aria-valuenow]="habilidad?.capacidad" aria-valuemin="0"
