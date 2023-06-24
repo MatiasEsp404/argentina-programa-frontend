@@ -1,5 +1,5 @@
 export interface Trabajo {
-  id?: string;
+  id?: number;
   titulo: string;
   fechaDesde: string
   fechaHasta: string;

@@ -1,5 +1,5 @@
 export interface Habilidad {
-  id?: string
+  id?: number
   nombre: string
   capacidad: number
 }

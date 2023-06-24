@@ -1,5 +1,5 @@
 export interface Estudio {
-  id?: string;
+  id?: number;
   titulo: string;
   fechaFinalizacion: string;
   descripcion: string;

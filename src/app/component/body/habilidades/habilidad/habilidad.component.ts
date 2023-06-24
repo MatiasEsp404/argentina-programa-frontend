@@ -27,7 +27,8 @@ export class HabilidadComponent implements OnInit {
   }
 
   modificarHabilidad() {
-    this.ngbModal.open(ModificarHabilidadComponent)
+    const modal = this.ngbModal.open(ModificarHabilidadComponent)
+    modal.componentInstance.habilidad = this.habilidad;
   }
 
   eliminarHabilidad() {

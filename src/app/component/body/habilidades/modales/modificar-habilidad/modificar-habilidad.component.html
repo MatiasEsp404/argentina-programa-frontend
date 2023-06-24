@@ -1,1 +1,29 @@
-<p>modificar-habilidad works!</p>
+<form class="form-wrapper" [formGroup]="habilidadForm">
+  <div class="form-group">
+    <label for="nombre" class="h6">Nombre</label>
+    <input type="text" class="form-control" id="nombre" aria-describedby="nombreHelp" placeholder="TypeScript"
+      formControlName="nombre" [class.is-invalid]="isInvalid('nombre')">
+    <div *ngIf="isInvalid('nombre')" class="invalid-feedback">
+      {{obtenerMensajeError('nombre')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="capacidad" class="h6">Capacidad</label>
+    <input type="number" class="form-control" id="capacidad" placeholder="90" formControlName="capacidad"
+      [class.is-invalid]="isInvalid('capacidad')">
+    <div *ngIf="isInvalid('capacidad')" class="invalid-feedback">
+      {{obtenerMensajeError('capacidad')}}
+    </div>
+  </div>
+  <div class="contenedor-horizontal">
+    <button type="button" class="btn btn-light" (click)="cancelar()">
+      Cancelar
+    </button>
+    <button type="button" class="btn btn-warning" (click)="modificarHabilidad()" [disabled]="!habilidadForm.valid">
+      Modificar Habilidad
+    </button>
+  </div>
+  <div *ngIf="errorBackend" class="errorBackend">
+    {{errorBackend}}
+  </div>
+</form>
