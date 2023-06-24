@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalCrearHabilidadComponent } from './modal-crear-habilidad.component';
+import { CrearHabilidadComponent } from './crear-habilidad.component';
 
 describe('ModalCrearHabilidadComponent', () => {
-  let component: ModalCrearHabilidadComponent;
-  let fixture: ComponentFixture<ModalCrearHabilidadComponent>;
+  let component: CrearHabilidadComponent;
+  let fixture: ComponentFixture<CrearHabilidadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalCrearHabilidadComponent ]
+      declarations: [ CrearHabilidadComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModalCrearHabilidadComponent);
+    fixture = TestBed.createComponent(CrearHabilidadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

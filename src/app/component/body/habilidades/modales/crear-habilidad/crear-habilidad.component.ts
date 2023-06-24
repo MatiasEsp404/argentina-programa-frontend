@@ -7,10 +7,10 @@ import { HabilidadService } from 'src/app/service/habilidad.service';
 
 @Component({
   selector: 'app-modal-crear-habilidad',
-  templateUrl: './modal-crear-habilidad.component.html',
-  styleUrls: ['./modal-crear-habilidad.component.scss']
+  templateUrl: './crear-habilidad.component.html',
+  styleUrls: ['./crear-habilidad.component.scss']
 })
-export class ModalCrearHabilidadComponent implements OnInit {
+export class CrearHabilidadComponent implements OnInit {
 
   constructor(
     private ngbActiveModal: NgbActiveModal,

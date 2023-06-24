@@ -1,0 +1,10 @@
+.contenedor {
+  padding: 2rem;
+  text-align: center;
+
+  .botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

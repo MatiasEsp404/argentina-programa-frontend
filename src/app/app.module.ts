@@ -10,13 +10,15 @@ import { EstudioComponent } from './component/body/estudios/estudio/estudio.comp
 import { EstudiosComponent } from './component/body/estudios/estudios.component';
 import { HabilidadComponent } from './component/body/habilidades/habilidad/habilidad.component';
 import { HabilidadesComponent } from './component/body/habilidades/habilidades.component';
+import { CrearHabilidadComponent } from './component/body/habilidades/modales/crear-habilidad/crear-habilidad.component';
+import { EliminarHabilidadComponent } from './component/body/habilidades/modales/eliminar-habilidad/eliminar-habilidad.component';
+import { ModificarHabilidadComponent } from './component/body/habilidades/modales/modificar-habilidad/modificar-habilidad.component';
 import { TrabajoComponent } from './component/body/trabajos/trabajo/trabajo.component';
 import { TrabajosComponent } from './component/body/trabajos/trabajos.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ModalIniciarSesionComponent } from './component/header/modal-iniciar-sesion/modal-iniciar-sesion.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
-import { ModalCrearHabilidadComponent } from './component/body/habilidades/modal-crear-habilidad/modal-crear-habilidad.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ModalCrearHabilidadComponent } from './component/body/habilidades/modal
     HabilidadesComponent,
     HabilidadComponent,
     ModalIniciarSesionComponent,
-    ModalCrearHabilidadComponent
+    CrearHabilidadComponent,
+    EliminarHabilidadComponent,
+    ModificarHabilidadComponent
   ],
   imports: [
     BrowserModule,

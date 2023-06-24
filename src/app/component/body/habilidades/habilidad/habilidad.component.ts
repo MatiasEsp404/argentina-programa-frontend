@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Habilidad } from 'src/app/model/habilidad';
 import { AuthService } from 'src/app/service/auth.service';
+import { ModificarHabilidadComponent } from '../modales/modificar-habilidad/modificar-habilidad.component';
+import { EliminarHabilidadComponent } from '../modales/eliminar-habilidad/eliminar-habilidad.component';
 
 @Component({
   selector: 'app-habilidad',
@@ -10,7 +13,8 @@ import { AuthService } from 'src/app/service/auth.service';
 export class HabilidadComponent implements OnInit {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private ngbModal: NgbModal
   ) { }
 
   @Input() habilidad: Habilidad | undefined;
@@ -23,11 +27,12 @@ export class HabilidadComponent implements OnInit {
   }
 
   modificarHabilidad() {
-
+    this.ngbModal.open(ModificarHabilidadComponent)
   }
 
   eliminarHabilidad() {
-
+    const modal = this.ngbModal.open(EliminarHabilidadComponent)
+    modal.componentInstance.id = this.habilidad?.id;
   }
 
 }

@@ -3,8 +3,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Habilidad } from 'src/app/model/habilidad';
 import { AuthService } from 'src/app/service/auth.service';
 import { HabilidadService } from 'src/app/service/habilidad.service';
-import { ModalCrearHabilidadComponent } from './modal-crear-habilidad/modal-crear-habilidad.component';
 import { Subscription } from 'rxjs';
+import { CrearHabilidadComponent } from './modales/crear-habilidad/crear-habilidad.component';
 
 @Component({
   selector: 'app-habilidades',
@@ -50,7 +50,7 @@ export class HabilidadesComponent implements OnInit, OnDestroy {
   }
 
   crearHabilidad() {
-    this.ngbModal.open(ModalCrearHabilidadComponent);
+    this.ngbModal.open(CrearHabilidadComponent);
   }
 
 }
