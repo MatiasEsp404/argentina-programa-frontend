@@ -16,6 +16,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ModalIniciarSesionComponent } from './component/header/modal-iniciar-sesion/modal-iniciar-sesion.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { ModalCrearHabilidadComponent } from './component/body/habilidades/modal-crear-habilidad/modal-crear-habilidad.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     TrabajoComponent,
     HabilidadesComponent,
     HabilidadComponent,
-    ModalIniciarSesionComponent
+    ModalIniciarSesionComponent,
+    ModalCrearHabilidadComponent
   ],
   imports: [
     BrowserModule,

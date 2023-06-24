@@ -1,4 +1,7 @@
-<p class="h2">Habilidades</p>
+<div class="titulo-container">
+  <p class="h2">Habilidades</p>
+  <button class="btn btn-primary" *ngIf="estaLogueado()" (click)="crearHabilidad()">Crear Habilidad</button>
+</div>
 <br>
 <div class="galery">
   <div class="habilidad" *ngFor="let habilidad of habilidades">

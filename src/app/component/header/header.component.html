@@ -1,9 +1,15 @@
-<div class="contenedor">
+<div class="container">
   <ng-container *ngIf="estaLogueado(); else noLogueado">
-    <button class="btn btn-primary" (click)="cerrarSesion()"><i class="material-icons">person</i>Cerrar Sesión</button>
+    <button class="btn btn-primary" (click)="cerrarSesion()">
+      <span class="material-icons">arrow_back</span>
+      Cerrar Sesión
+    </button>
   </ng-container>
   <ng-template #noLogueado>
-    <button class="btn btn-primary" (click)="iniciarSesion()"><i class="material-icons">person</i>Iniciar Sesión</button>
+    <button class="btn btn-primary" (click)="iniciarSesion()">
+      <span class="material-icons">arrow_forward</span>
+      Iniciar Sesión
+    </button>
   </ng-template>
   <img src="https://images.wikidexcdn.net/mwuploads/wikidex/7/77/Pikachu.png" alt="%">
   <p class="h1">Matias Espinola</p>

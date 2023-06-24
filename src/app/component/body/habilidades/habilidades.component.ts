@@ -1,22 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Habilidad } from 'src/app/model/habilidad';
+import { AuthService } from 'src/app/service/auth.service';
 import { HabilidadService } from 'src/app/service/habilidad.service';
+import { ModalCrearHabilidadComponent } from './modal-crear-habilidad/modal-crear-habilidad.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-habilidades',
   templateUrl: './habilidades.component.html',
   styleUrls: ['./habilidades.component.scss']
 })
-export class HabilidadesComponent implements OnInit {
+export class HabilidadesComponent implements OnInit, OnDestroy {
 
   constructor(
-    private habilidadService: HabilidadService
-  ) { }
+    private habilidadService: HabilidadService,
+    private ngbModal: NgbModal,
+    private authService: AuthService
+  ) {
+    this.habilidadesSubs = this.habilidadService.recargarHabilidades.subscribe(
+      () => this.obtenerHabilidades()
+    )
+  }
 
   habilidades: Habilidad[] | undefined;
+  private habilidadesSubs = new Subscription()
 
   ngOnInit(): void {
     this.obtenerHabilidades();
+  }
+
+  ngOnDestroy(): void {
+    this.habilidadesSubs.unsubscribe();
   }
 
   private obtenerHabilidades() {
@@ -28,6 +43,14 @@ export class HabilidadesComponent implements OnInit {
         console.log(error);
       }
     })
+  }
+
+  estaLogueado(): boolean {
+    return this.authService.estaLogueado();
+  }
+
+  crearHabilidad() {
+    this.ngbModal.open(ModalCrearHabilidadComponent);
   }
 
 }
