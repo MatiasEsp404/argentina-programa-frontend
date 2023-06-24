@@ -6,4 +6,7 @@
     <button class="btn btn-light" (click)="cancelar()">Cancelar</button>
     <button class="btn btn-danger" (click)="eliminarHabilidad()">Eliminar</button>
   </div>
+  <div *ngIf="errorBackend" class="errorBackend">
+    {{errorBackend}}
+  </div>
 </div>

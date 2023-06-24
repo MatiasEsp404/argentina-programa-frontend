@@ -1,6 +1,16 @@
 <div class="card">
   <div class="card-body">
-    <p class="h5">{{estudio?.titulo}}</p>
+    <div class="titulo-container">
+      <p class="h5">{{estudio?.titulo}}</p>
+      <div class="botones" *ngIf="estaLogueado()">
+        <button class="btn btn-light" (click)="modificarEstudio()">
+          <span class="material-icons">edit</span>
+        </button>
+        <button class="btn btn-light" (click)="eliminarEstudio()">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+    </div>
     <p><small>{{estudio?.fechaFinalizacion}}</small></p>
     <p>{{estudio?.descripcion}}</p>
   </div>
