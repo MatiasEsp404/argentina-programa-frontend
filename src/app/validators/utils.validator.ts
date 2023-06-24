@@ -13,3 +13,12 @@ export function menorIgualAFechaActual(): ValidatorFn {
     return null;
   }
 }
+
+export function longitudMaxima(maximo: number): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (control.value && control.value.length > maximo) {
+      return { longitudExcedida: true };
+    }
+    return null;
+  };
+}
