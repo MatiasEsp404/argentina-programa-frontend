@@ -17,7 +17,7 @@
   </div>
   <div class="form-group">
     <label for="fechaFinalizacion" class="h6">Fecha de Finalizacion</label>
-    <input type="date" class="form-control" id="fechaFinalizacion" placeholder="Bla bla bla..."
+    <input type="date" class="form-control" id="fechaFinalizacion"
       formControlName="fechaFinalizacion" [class.is-invalid]="isInvalid('fechaFinalizacion')">
     <div *ngIf="isInvalid('fechaFinalizacion')" class="invalid-feedback">
       {{obtenerMensajeError('fechaFinalizacion')}}
