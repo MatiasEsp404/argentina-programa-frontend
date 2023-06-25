@@ -23,20 +23,6 @@ export function longitudMaxima(maximo: number): ValidatorFn {
   };
 }
 
-// export function hastaPosteriorADesde(fechaDesde: string): ValidatorFn {
-//   return (control: AbstractControl): ValidationErrors | null => {
-//     debugger
-//     if (control.value && fechaDesde) {
-//       const fechaHasta = moment.utc(control.value, 'YYYY-MM-DD').startOf('day');
-//       const fechaDesdeParametro = moment.utc(fechaDesde, 'YYYY-MM-DD').startOf('day');
-//       if (fechaHasta.isBefore(fechaDesdeParametro)) {
-//         return { fechaNoValida: true };
-//       }
-//     }
-//     return null;
-//   };
-// }
-
 export function hastaPosteriorADesde(): ValidatorFn {
   return (form: AbstractControl): ValidationErrors | null => {
     const parentForm = form.parent;
