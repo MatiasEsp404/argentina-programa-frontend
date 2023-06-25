@@ -1,1 +1,37 @@
-<p>modificar-estudio works!</p>
+<form class="form-wrapper" [formGroup]="estudioForm">
+  <div class="form-group">
+    <label for="titulo" class="h6">Titulo</label>
+    <input type="text" class="form-control" id="titulo" placeholder="Licenciado en League of Legends"
+      formControlName="titulo" [class.is-invalid]="isInvalid('titulo')">
+    <div *ngIf="isInvalid('titulo')" class="invalid-feedback">
+      {{obtenerMensajeError('titulo')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="descripcion" class="h6">Descripcion</label>
+    <textarea type="text" class="form-control" id="descripcion" rows="5" placeholder="Bla bla bla..."
+      formControlName="descripcion" [class.is-invalid]="isInvalid('descripcion')"></textarea>
+    <div *ngIf="isInvalid('descripcion')" class="invalid-feedback">
+      {{obtenerMensajeError('descripcion')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fechaFinalizacion" class="h6">Fecha de Finalizacion</label>
+    <input type="date" class="form-control" id="fechaFinalizacion" placeholder="Bla bla bla..."
+      formControlName="fechaFinalizacion" [class.is-invalid]="isInvalid('fechaFinalizacion')">
+    <div *ngIf="isInvalid('fechaFinalizacion')" class="invalid-feedback">
+      {{obtenerMensajeError('fechaFinalizacion')}}
+    </div>
+  </div>
+  <div class="contenedor-horizontal">
+    <button type="button" class="btn btn-light" (click)="cancelar()">
+      Cancelar
+    </button>
+    <button type="button" class="btn btn-primary" (click)="modificarEstudio()" [disabled]="!estudioForm.valid">
+      Modificar Estudio
+    </button>
+  </div>
+  <div *ngIf="errorBackend" class="errorBackend">
+    {{errorBackend}}
+  </div>
+</form>

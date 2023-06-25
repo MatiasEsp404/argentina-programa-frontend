@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './service/auth.service';
 import { firstValueFrom } from 'rxjs';
+import { TrabajoService } from './service/trabajo.service';
+import { EstudioService } from './service/estudio.service';
+import { HabilidadService } from './service/habilidad.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +14,10 @@ export class AppComponent implements OnInit {
   title = 'argentina-programa-frontend';
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private trabajoService: TrabajoService,
+    private estudioService: EstudioService,
+    private habilidadService: HabilidadService,
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +29,9 @@ export class AppComponent implements OnInit {
       await firstValueFrom(this.authService.me())
     } catch (error: any) {
       this.authService.limpiarToken()
+      this.trabajoService.recargarTrabajos.next();
+      this.estudioService.recargarEstudios.next();
+      this.habilidadService.recargarHabilidades.next();
     }
   }
 
