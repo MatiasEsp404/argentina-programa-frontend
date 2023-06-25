@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Estudio } from 'src/app/model/estudio';
 import { EstudioService } from 'src/app/service/estudio.service';
 import { CrearEstudioComponent } from './modales/crear-estudio/crear-estudio.component';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './estudios.component.html',
   styleUrls: ['./estudios.component.scss']
 })
-export class EstudiosComponent implements OnInit {
+export class EstudiosComponent implements OnInit, OnDestroy {
 
   constructor(
     private estudioService: EstudioService,

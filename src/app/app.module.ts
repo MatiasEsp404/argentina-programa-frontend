@@ -22,6 +22,9 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { CrearEstudioComponent } from './component/body/estudios/modales/crear-estudio/crear-estudio.component';
 import { EliminarEstudioComponent } from './component/body/estudios/modales/eliminar-estudio/eliminar-estudio.component';
 import { ModificarEstudioComponent } from './component/body/estudios/modales/modificar-estudio/modificar-estudio.component';
+import { CrearTrabajoComponent } from './component/body/trabajos/modales/crear-trabajo/crear-trabajo.component';
+import { EliminarTrabajoComponent } from './component/body/trabajos/modales/eliminar-trabajo/eliminar-trabajo.component';
+import { ModificarTrabajoComponent } from './component/body/trabajos/modales/modificar-trabajo/modificar-trabajo.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { ModificarEstudioComponent } from './component/body/estudios/modales/mod
     ModificarHabilidadComponent,
     CrearEstudioComponent,
     EliminarEstudioComponent,
-    ModificarEstudioComponent
+    ModificarEstudioComponent,
+    CrearTrabajoComponent,
+    EliminarTrabajoComponent,
+    ModificarTrabajoComponent
   ],
   imports: [
     BrowserModule,

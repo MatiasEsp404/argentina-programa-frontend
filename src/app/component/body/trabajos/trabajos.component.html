@@ -1,5 +1,8 @@
 <div>
-  <p class="h2">Experiencia Laboral</p>
+  <div class="titulo-container">
+    <p class="h2">Experiencia Laboral</p>
+    <button class="btn btn-primary" *ngIf="estaLogueado()" (click)="crearTrabajo()">Crear Trabajo</button>
+  </div>
   <br>
   <div *ngFor="let trabajo of trabajos">
     <app-trabajo [trabajo]="trabajo"></app-trabajo>
