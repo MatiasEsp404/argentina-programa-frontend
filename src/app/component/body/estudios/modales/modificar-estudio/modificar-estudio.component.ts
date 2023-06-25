@@ -60,7 +60,6 @@ export class ModificarEstudioComponent implements OnInit {
     this.ngbActiveModal.close(false);
   }
 
-
   async modificarEstudio() {
     try {
       await firstValueFrom(this.estudioService.modificarEstudio(this.obtenerRequest(), this.estudio?.id!))
@@ -79,17 +78,9 @@ export class ModificarEstudioComponent implements OnInit {
     const request: Estudio = {
       titulo: this.estudioForm.get('titulo')?.value!,
       descripcion: this.estudioForm.get('descripcion')?.value!,
-      fechaFinalizacion: this.parsearFecha(this.estudioForm.get('fechaFinalizacion')?.value!)
+      fechaFinalizacion: this.estudioForm.get('fechaFinalizacion')?.value!
     }
     return request;
-  }
-
-  parsearFecha(fecha: string): string {
-    const partes = fecha.split('-');
-    const dia = partes[2];
-    const mes = partes[1];
-    const anio = partes[0];
-    return `${dia}-${mes}-${anio}`;
   }
 
 }
