@@ -1,15 +1,15 @@
 <form class="form-wrapper" [formGroup]="sesionForm">
   <div class="form-group">
     <label for="email" class="h6">Email</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="foo@gmail.com"
-      formControlName="email" [class.is-invalid]="isInvalid('email')">
+    <input type="email" class="form-control" id="email" placeholder="foo@outlook.com" formControlName="email"
+      [class.is-invalid]="isInvalid('email')">
     <div *ngIf="isInvalid('email')" class="invalid-feedback">
       {{obtenerMensajeError('email')}}
     </div>
   </div>
   <div class="form-group">
     <label for="contrasenia" class="h6">Contraseña</label>
-    <input type="password" class="form-control" id="contrasenia" placeholder="Pass1234" formControlName="contrasenia"
+    <input type="password" class="form-control" id="contrasenia" placeholder="ArgProg2022" formControlName="contrasenia"
       [class.is-invalid]="isInvalid('contrasenia')">
     <div *ngIf="isInvalid('contrasenia')" class="invalid-feedback">
       {{obtenerMensajeError('contrasenia')}}

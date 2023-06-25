@@ -1,7 +1,8 @@
 <div class="card">
   <div class="card-body">
     <p class="h5">{{trabajo?.titulo}}</p>
-    <p><small>{{trabajo?.fechaDesde}} - {{trabajo?.fechaHasta}}</small></p>
+    <p class="h6"><small>{{trabajo?.empresa}}</small></p>
+    <p><small>{{trabajo?.fechaDesde | date: 'MM-yyyy' }} | {{trabajo?.fechaHasta | date: 'MM-yyyy' }}</small></p>
     <p>{{trabajo?.descripcion}}</p>
   </div>
 </div>
