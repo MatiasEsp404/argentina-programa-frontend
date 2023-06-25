@@ -1,1 +1,53 @@
-<p>modificar-trabajo works!</p>
+<form class="form-wrapper" [formGroup]="trabajoForm">
+  <div class="form-group">
+    <label for="titulo" class="h6">Titulo</label>
+    <input type="text" class="form-control" id="titulo" placeholder="Desarrollador Java Full Stack"
+      formControlName="titulo" [class.is-invalid]="isInvalid('titulo')">
+    <div *ngIf="isInvalid('titulo')" class="invalid-feedback">
+      {{obtenerMensajeError('titulo')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="empresa" class="h6">Empresa</label>
+    <input type="text" class="form-control" id="empresa" placeholder="Evil Corporation S.A."
+      formControlName="empresa" [class.is-invalid]="isInvalid('empresa')">
+    <div *ngIf="isInvalid('empresa')" class="invalid-feedback">
+      {{obtenerMensajeError('empresa')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="descripcion" class="h6">Descripcion</label>
+    <textarea type="text" class="form-control" id="descripcion" rows="5" placeholder="Bla bla bla..."
+      formControlName="descripcion" [class.is-invalid]="isInvalid('descripcion')"></textarea>
+    <div *ngIf="isInvalid('descripcion')" class="invalid-feedback">
+      {{obtenerMensajeError('descripcion')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fechaDesde" class="h6">Fecha de Contrato</label>
+    <input type="date" class="form-control" id="fechaDesde"
+      formControlName="fechaDesde" [class.is-invalid]="isInvalid('fechaDesde')">
+    <div *ngIf="isInvalid('fechaDesde')" class="invalid-feedback">
+      {{obtenerMensajeError('fechaDesde')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fechaHasta" class="h6">Fecha de Desvinculación</label>
+    <input type="date" class="form-control" id="fechaHasta"
+      formControlName="fechaHasta" [class.is-invalid]="isInvalid('fechaHasta')">
+    <div *ngIf="isInvalid('fechaHasta')" class="invalid-feedback">
+      {{obtenerMensajeError('fechaHasta')}}
+    </div>
+  </div>
+  <div class="contenedor-horizontal">
+    <button type="button" class="btn btn-light" (click)="cancelar()">
+      Cancelar
+    </button>
+    <button type="button" class="btn btn-primary" (click)="modificarTrabajo()" [disabled]="!trabajoForm.valid">
+      Modificar Trabajo
+    </button>
+  </div>
+  <div *ngIf="errorBackend" class="errorBackend">
+    {{errorBackend}}
+  </div>
+</form>

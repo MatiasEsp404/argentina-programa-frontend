@@ -50,7 +50,6 @@ export class CrearTrabajoComponent implements OnInit {
     return textos[i];
   }
 
-
   isInvalid(formControl: string) {
     let control = this.trabajoForm.get(formControl);
     if (!control) {
