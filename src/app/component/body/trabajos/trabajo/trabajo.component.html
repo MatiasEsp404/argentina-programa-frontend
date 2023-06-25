@@ -1,6 +1,16 @@
 <div class="card">
   <div class="card-body">
-    <p class="h5">{{trabajo?.titulo}}</p>
+    <div class="titulo-container">
+      <p class="h5">{{trabajo?.titulo}}</p>
+      <div class="botones" *ngIf="estaLogueado()">
+        <button class="btn btn-light" (click)="modificarTrabajo()">
+          <span class="material-icons">edit</span>
+        </button>
+        <button class="btn btn-light" (click)="eliminarTrabajo()">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+    </div>
     <p class="h6"><small>{{trabajo?.empresa}}</small></p>
     <p><small>{{trabajo?.fechaDesde | date: 'MM-yyyy' }} | {{trabajo?.fechaHasta | date: 'MM-yyyy' }}</small></p>
     <p>{{trabajo?.descripcion}}</p>

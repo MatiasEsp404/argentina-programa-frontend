@@ -15,11 +15,11 @@ export class EliminarEstudioComponent implements OnInit {
     private estudioService: EstudioService
   ) { }
 
-  ngOnInit(): void {
-  }
-
   @Input() id: number | undefined;
   errorBackend = ''
+
+  ngOnInit(): void {
+  }
 
   cancelar() {
     this.ngbActiveModal.close(false);
