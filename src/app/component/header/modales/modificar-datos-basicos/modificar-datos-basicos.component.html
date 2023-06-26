@@ -1,0 +1,37 @@
+<form class="form-wrapper" [formGroup]="datosForm">
+  <div class="form-group">
+    <label for="nombre" class="h6">Nombre</label>
+    <input type="text" class="form-control" id="nombre" placeholder="Claudio Matias Correa Espinola"
+      formControlName="nombre" [class.is-invalid]="isInvalid('nombre')">
+    <div *ngIf="isInvalid('nombre')" class="invalid-feedback">
+      {{obtenerMensajeError('nombre')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="titulo" class="h6">Titulo</label>
+    <input type="text" class="form-control" id="titulo" placeholder="Desarrollador Java Full Stack"
+      formControlName="titulo" [class.is-invalid]="isInvalid('titulo')">
+    <div *ngIf="isInvalid('titulo')" class="invalid-feedback">
+      {{obtenerMensajeError('titulo')}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="imagen" class="h6">Imagen</label>
+    <input type="text" class="form-control" id="imagen" placeholder="foto-mia.jpg"
+      formControlName="imagen" [class.is-invalid]="isInvalid('imagen')">
+    <div *ngIf="isInvalid('imagen')" class="invalid-feedback">
+      {{obtenerMensajeError('imagen')}}
+    </div>
+  </div>
+  <div class="contenedor-horizontal">
+    <button type="button" class="btn btn-light" (click)="cancelar()">
+      Cancelar
+    </button>
+    <button type="button" class="btn btn-primary" (click)="modificarDatosBasicos()" [disabled]="!datosForm.valid">
+      Modificar Datos
+    </button>
+  </div>
+  <div *ngIf="errorBackend" class="errorBackend">
+    {{errorBackend}}
+  </div>
+</form>

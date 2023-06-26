@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { TrabajoService } from './service/trabajo.service';
 import { EstudioService } from './service/estudio.service';
 import { HabilidadService } from './service/habilidad.service';
+import { DatosBasicosService } from './service/datos-basicos.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
     private trabajoService: TrabajoService,
     private estudioService: EstudioService,
     private habilidadService: HabilidadService,
+    private datosBasicosService: DatosBasicosService
   ) { }
 
   ngOnInit(): void {
@@ -29,9 +31,10 @@ export class AppComponent implements OnInit {
       await firstValueFrom(this.authService.me())
     } catch (error: any) {
       this.authService.limpiarToken()
-      this.trabajoService.recargarTrabajos.next();
-      this.estudioService.recargarEstudios.next();
-      this.habilidadService.recargarHabilidades.next();
+      // this.trabajoService.recargarTrabajos.next();
+      // this.estudioService.recargarEstudios.next();
+      // this.habilidadService.recargarHabilidades.next();
+      // this.datosBasicosService.recargarDatosBasicos.next();
     }
   }
 

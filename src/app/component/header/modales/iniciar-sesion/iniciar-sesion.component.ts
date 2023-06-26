@@ -7,10 +7,10 @@ import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-modal-iniciar-sesion',
-  templateUrl: './modal-iniciar-sesion.component.html',
-  styleUrls: ['./modal-iniciar-sesion.component.scss']
+  templateUrl: './iniciar-sesion.component.html',
+  styleUrls: ['./iniciar-sesion.component.scss']
 })
-export class ModalIniciarSesionComponent implements OnInit {
+export class IniciarSesionComponent implements OnInit {
 
   constructor(
     private ngbActiveModal: NgbActiveModal,

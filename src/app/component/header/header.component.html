@@ -1,17 +1,22 @@
 <div class="container">
   <ng-container *ngIf="estaLogueado(); else noLogueado">
-    <button class="btn btn-primary" (click)="cerrarSesion()">
+    <button class="btn btn-primary btn-sesion" (click)="cerrarSesion()">
       <span class="material-icons">arrow_back</span>
       Cerrar Sesión
     </button>
   </ng-container>
   <ng-template #noLogueado>
-    <button class="btn btn-primary" (click)="iniciarSesion()">
+    <button class="btn btn-primary btn-sesion" (click)="iniciarSesion()">
       <span class="material-icons">arrow_forward</span>
       Iniciar Sesión
     </button>
   </ng-template>
-  <img src="https://images.wikidexcdn.net/mwuploads/wikidex/7/77/Pikachu.png" alt="%">
-  <p class="h1">Matias Espinola</p>
-  <p><small>Desarrollador Backend</small></p>
+  <img [src]="imagen" [alt]="datosBasicos?.nombre" (error)="cargarImagenLocal()">
+  <p class="h1">
+    {{datosBasicos?.nombre}}
+    <button class="btn btn-light btn-edit" *ngIf="estaLogueado()" (click)="modificarDatosBasicos()">
+      <span class="material-icons">edit</span>
+    </button>
+  </p>
+  <p><small>{{datosBasicos?.titulo}}</small></p>
 </div>
