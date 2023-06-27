@@ -1,0 +1,26 @@
+.contenedor {
+
+  width: fit-content;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    display: block;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 3rem;
+    font-weight: 800;
+    font-size: Huge;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+  }
+}

@@ -26,6 +26,8 @@ import { HeaderComponent } from './component/header/header.component';
 import { IniciarSesionComponent } from './component/header/modales/iniciar-sesion/iniciar-sesion.component';
 import { ModificarDatosBasicosComponent } from './component/header/modales/modificar-datos-basicos/modificar-datos-basicos.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     CrearTrabajoComponent,
     EliminarTrabajoComponent,
     ModificarTrabajoComponent,
-    ModificarDatosBasicosComponent
+    ModificarDatosBasicosComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
