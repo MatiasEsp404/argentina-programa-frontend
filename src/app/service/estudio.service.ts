@@ -25,11 +25,11 @@ export class EstudioService {
   }
 
   eliminarEstudio(id: number) {
-    return this.http.delete<any>(this.url + id);
+    return this.http.delete<any>(this.url + `/${id}`);
   }
 
   modificarEstudio(estudio: Estudio, id: number) {
-    return this.http.put<any>(this.url + id, estudio);
+    return this.http.put<any>(this.url + `/${id}`, estudio);
   }
 
 }

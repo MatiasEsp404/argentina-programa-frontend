@@ -21,7 +21,7 @@ export class DatosBasicosService {
   }
 
   modificarDatosBasicos(datosBasicos: DatosBasicos, id: number) {
-    return this.http.put<any>(this.url + id, datosBasicos);
+    return this.http.put<any>(this.url + `/${id}`, datosBasicos);
   }
 
 }

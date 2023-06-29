@@ -25,11 +25,11 @@ export class TrabajoService {
   }
 
   eliminarTrabajo(id: number) {
-    return this.http.delete<any>(this.url + id);
+    return this.http.delete<any>(this.url + `/${id}`);
   }
 
   modificarTrabajo(trabajo: Trabajo, id: number) {
-    return this.http.put<any>(this.url + id, trabajo);
+    return this.http.put<any>(this.url + `/${id}`, trabajo);
   }
 
 }

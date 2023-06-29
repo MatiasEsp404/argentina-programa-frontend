@@ -10,40 +10,26 @@ import { Credenciales } from '../model/credenciales';
 export class AuthService {
 
   private tokenKey = 'accessToken';
-  private url = `${environment.API_URL}/auth`
+  private url = `${environment.API_URL}/api/auth`
 
   constructor(
     private http: HttpClient
   ) { }
 
-  private codificar(token: string): string {
-    const tokenCodificado = btoa(token);
-    return window.atob(tokenCodificado);
-  }
-
-  private decodificar(tokenCodificado: string): string {
-    const token = window.atob(tokenCodificado);
-    return atob(token);
-  }
-
   guardarToken(token: string): void {
-    localStorage.setItem(this.codificar(this.tokenKey), this.codificar(token));
+    localStorage.setItem(this.tokenKey, token);
   }
 
   obtenerToken(): string | null {
-    let tokenCodificado = localStorage.getItem(this.codificar(this.tokenKey));
-    if (tokenCodificado) {
-      return this.decodificar(tokenCodificado);
-    }
-    return null;
+    return localStorage.getItem(this.tokenKey);
   }
 
   limpiarToken(): void {
-    localStorage.removeItem(this.codificar(this.tokenKey));
+    localStorage.removeItem(this.tokenKey);
   }
 
   estaLogueado(): boolean {
-    return !!localStorage.getItem(this.codificar(this.tokenKey));
+    return !!localStorage.getItem(this.tokenKey);
   }
 
   login(credenciales: Credenciales): Observable<any> {

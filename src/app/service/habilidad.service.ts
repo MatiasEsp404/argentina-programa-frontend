@@ -25,11 +25,11 @@ export class HabilidadService {
   }
 
   eliminarHabilidad(id: number) {
-    return this.http.delete<any>(this.url + id);
+    return this.http.delete<any>(this.url + `/${id}`);
   }
 
   modificarHabilidad(habilidad: Habilidad, id: number) {
-    return this.http.put<any>(this.url + id, habilidad);
+    return this.http.put<any>(this.url + `/${id}`, habilidad);
   }
 
 }
