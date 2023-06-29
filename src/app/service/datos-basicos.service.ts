@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { DatosBasicos } from '../model/datos-basicos';
 
 @Injectable({
@@ -12,15 +13,15 @@ export class DatosBasicosService {
     private http: HttpClient
   ) { }
 
-  private backendUrl = 'http://localhost:8080';
+  private url = `${environment.API_URL}/api/datos`
   recargarDatosBasicos = new Subject<void>();
 
   obtenerDatosBasicos() {
-    return this.http.get<any>(this.backendUrl + '/api/datos/1')
+    return this.http.get<any>(this.url + '/1')
   }
 
   modificarDatosBasicos(datosBasicos: DatosBasicos, id: number) {
-    return this.http.put<any>(this.backendUrl + `/api/datos/${id}`, datosBasicos);
+    return this.http.put<any>(this.url + id, datosBasicos);
   }
 
 }

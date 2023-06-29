@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Habilidad } from '../model/habilidad';
 
 @Injectable({
@@ -12,23 +13,23 @@ export class HabilidadService {
     private http: HttpClient
   ) { }
 
-  private backendUrl = 'http://localhost:8080'
+  private url = `${environment.API_URL}/api/habilidad`
   recargarHabilidades = new Subject<void>();
 
   obtenerHabilidades() {
-    return this.http.get<any>(this.backendUrl + '/api/habilidad')
+    return this.http.get<any>(this.url)
   }
 
   crearHabilidad(habilidad: Habilidad) {
-    return this.http.post<any>(this.backendUrl + '/api/habilidad', habilidad);
+    return this.http.post<any>(this.url, habilidad);
   }
 
   eliminarHabilidad(id: number) {
-    return this.http.delete<any>(this.backendUrl + `/api/habilidad/${id}`);
+    return this.http.delete<any>(this.url + id);
   }
 
   modificarHabilidad(habilidad: Habilidad, id: number) {
-    return this.http.put<any>(this.backendUrl + `/api/habilidad/${id}`, habilidad);
+    return this.http.put<any>(this.url + id, habilidad);
   }
 
 }
